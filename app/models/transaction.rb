@@ -1,15 +1,24 @@
 class Transaction < ActiveRecord::Base
   def self.total
-    spent = withdrawal.reduce
-    income = deposit.reduce
+    spent = withdrawals.reduce(0) {|sum, withdrawal| sum + withdrawal.amount}
+    income = deposits.reduce(0) {|sum, deposit| sum + deposit.amount}
     income - spent
   end
 
-  def self.withdrawal
-    self.all.select {|t| t.transaction_type == "withdrawal"}
+  def self.total_transactions
+    self.count
   end
 
-  def self.deposit
-    self.all.select {|t| t.transaction_type == "withdrawal"}
+  def self.withdrawals
+    self.all.select {|t| t.transaction_type == "Withdrawal"}
   end
+
+  def self.deposits
+    self.all.select {|t| t.transaction_type == "Deposit"}
+  end
+
+
+
+
+  
 end
