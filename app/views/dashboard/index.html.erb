@@ -11,6 +11,7 @@
   <p>You made it! You are a MILLIONAIRE!</p>
 <% end %>
 
+<p>Your largest expesnse was $<%= @big_expense.max.amount %>!
 <p>Number of transactions:<%=@total_transactions%> </p>
 
 <p><%= link_to 'New Transaction', new_transaction_path %>

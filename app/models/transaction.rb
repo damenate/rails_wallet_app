@@ -17,8 +17,9 @@ class Transaction < ActiveRecord::Base
     self.all.select {|t| t.transaction_type == "Deposit"}
   end
 
-
-
-
-  
+  def self.big_expense
+    expenses = []
+    expenses << withdrawals
+    expenses.max
+  end
 end
