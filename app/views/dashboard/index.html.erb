@@ -1,20 +1,20 @@
 <div align="center">
-<h2>"AM I BROKE? CALCULATOR"</h2>
+  <h2>"AM I BROKE? CALCULATOR"</h2>
 
 
-<p>This is all your money: $<%=@total%></p>
-<% if @total < 100 %>
-  <p>You broke, get mo' money!</p>
+  <p>This is all your money: $<%=@total%></p>
+  <% if @total < 100 %>
+    <p>You broke, get mo' money!</p>
   <% elsif @total > 1000 && @total < 1000000 %>
-  <p>You are a thousandaire!</p>
+    <p>You are a thousandaire!</p>
   <% elsif @total > 1000000 %>
-  <p>You made it! You are a MILLIONAIRE!</p>
-<% end %>
+    <p>You made it! You are a MILLIONAIRE!</p>
+  <% end %>
 
-<p>Your largest expense was $<%= @big_expense %>!</p>
-<p>You spend all you dollas on <%= @expensive_receiver %></p>  
-<p>Number of transactions:<%=@total_transactions%> </p>
+  <p>Your largest expense was $<%= @big_expense %>!</p>
+  <p>You spend all your holla-dollas on <%= @expensive_receiver %></p>
+  <p>Number of transactions:<%=@total_transactions%> </p>
 
-<p><%= link_to 'New Transaction', new_transaction_path %>
-&nbsp;&nbsp;<%= link_to 'Transactions', transactions_path %></p>
+  <p><%= link_to 'New Transaction', new_transaction_path %>
+  &nbsp;&nbsp;<%= link_to 'Transactions', transactions_path %></p>
 </div>

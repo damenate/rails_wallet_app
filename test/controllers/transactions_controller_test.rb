@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TransactionsControllerTest < ActionController::TestCase
   setup do
-    @transaction = transactions(:one)
+    @transaction = transactions(:last_month)
   end
 
   test "should get index" do

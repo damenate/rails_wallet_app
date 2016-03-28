@@ -1,9 +1,14 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_statistics, only: [:index, :dashboard] #I dont think this will work for me.
   # GET /transactions
   def index
     @transactions = Transaction.all
+
+    @total = Transaction.total
+    @total_transactions = Transaction.total_transactions
+    @big_expense = Transaction.big_expense
+    @expensive_receiver = Transaction.expensive_receiver
   end
 
   # GET /transactions/1

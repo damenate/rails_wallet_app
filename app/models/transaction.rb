@@ -27,13 +27,23 @@ class Transaction < ActiveRecord::Base
   end
 
   def self.expensive_receiver
-    withdrawals.map{|t| t.receiver}.sort.last
-#     FROM time_entries AS t
-# INNER JOIN projects AS p ON t.project_id = p.id
-# INNER JOIN clients AS c ON p.client_id = c.id
-# INNER JOIN developers AS d ON t.developer_id = d.id
-# WHERE developer_id = 28
-# GROUP BY p.client_id
-# ORDER BY total_hours DESC LIMIT 1;
+    # withdrawals = self.all.select {|e| e.withdrawals}
+    # receiver = Hash.new(0)
+    # withdrawals.each do |d|
+    #   receiver[d.receiver] += d.amount
+    # end
+
+    self.where(transaction_type: "Withdrawal").group("receiver").order("sum(amount)").last.receiver
+
+    # SELECT receiver
+    # FROM transactions
+    # WHERE transaction_type = "Withdrawal"
+    # GROUP BY receiver
+    # ORDER BY sum(amount) DESC
+    # LIMIT 1
+
   end
+
+
+
 end

@@ -7,7 +7,5 @@ class DashboardController < ApplicationController
     @expensive_receiver = Transaction.expensive_receiver
   end
 
-  def show
-
-  end
+  
 end

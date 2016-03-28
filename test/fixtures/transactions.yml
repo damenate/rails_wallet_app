@@ -1,11 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  transaction_type: MyString
-  receiver: MyString
-  amount: 9.99
+last_month:
+  transaction_type: withdrawal
+  receiver: T.Swift
+  amount: 200
+  created_at: <% Time.now - 1.month %>
 
-two:
-  transaction_type: MyString
-  receiver: MyString
-  amount: 9.99
+this_month:
+  transaction_type: withdrawal
+  receiver: JDavid
+  amount: 100
+  created_at: <% Time.now %>
+
+
+more_this_month:
+  transaction_type: deposit
+  amount: 1300
+  receiver: bank
+  created_at: <% Time.now %>
